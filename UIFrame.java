@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class UIFrame extends JFrame {
-    private static final long serialVersionUID = 1L;
 
     private JTextField emailField;
     private JButton submitButton;
@@ -21,7 +20,8 @@ public class UIFrame extends JFrame {
         initEmailPanel();
         getContentPane().add(emailPanel, BorderLayout.NORTH);
 
-        panelMap = new JPanel();
+        // Use BackgroundPanel for center
+        panelMap = new BackgroundPanel();
         panelMap.setLayout(new BorderLayout());
         getContentPane().add(panelMap, BorderLayout.CENTER);
     }

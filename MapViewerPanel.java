@@ -82,7 +82,7 @@ public class MapViewerPanel extends JPanel {
         map.addMapMarker(new LabeledDot("Topokkiman Talisay", 10.247382, 123.846579, GOLDENROD, 6));
 
         map.addMapMarker(new LabeledDot("Nomnom Desserts", 10.257656, 123.828301, Color.GREEN, 6));
-        map.addMapMarker(new LabeledDot("Mille Crepe by Kari", 10.345126, 123.916735, Color.GREEN, 6));
+        map.addMapMarker(new LabeledDot("Mille Crepe by Kari", 10.344999, 123.908584, Color.GREEN, 6));
 
         map.repaint();
     }
