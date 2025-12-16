@@ -1,19 +1,18 @@
-package MapProject;
+package finals;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class UIFrame extends JFrame {
 
-    private JTextField emailField;
+	private JTextField emailField;
     private JButton submitButton;
     private JPanel emailPanel;
-    private JPanel panelMap;
+    private BackgroundPanel panelMap;    // use BackgroundPanel
     private MapViewerPanel mapViewerPanel;
 
-    // Use your new validators
-    private final Validator generalValidator = new GeneralEmailValidator();
-    private final Validator uscValidator = new USCEmailValidator();
+    private final EmailValidator generalValidator = new GeneralEmailValidator();
+    private final EmailValidator uscValidator = new USCEmailValidator();
 
     public UIFrame() {
         setTitle("Discounted Places Finder");
@@ -24,12 +23,11 @@ public class UIFrame extends JFrame {
         initEmailPanel();
         getContentPane().add(emailPanel, BorderLayout.NORTH);
 
-        // Use BackgroundPanel for center
+        // center panel with background image
         panelMap = new BackgroundPanel();
         panelMap.setLayout(new BorderLayout());
         getContentPane().add(panelMap, BorderLayout.CENTER);
     }
-
     private void initEmailPanel() {
         emailPanel = new JPanel();
         JLabel emailLabel = new JLabel("Enter your usc.edu.ph email:");
@@ -46,7 +44,6 @@ public class UIFrame extends JFrame {
     private void onSubmitEmail() {
         String email = emailField.getText();
 
-        // First: general email validation
         if (!generalValidator.validate(email)) {
             JOptionPane.showMessageDialog(this,
                     "Please enter a valid email address.",
@@ -55,7 +52,6 @@ public class UIFrame extends JFrame {
             return;
         }
 
-        // Second: USC-specific validation
         if (!uscValidator.validate(email)) {
             JOptionPane.showMessageDialog(this,
                     "Email must end with usc.edu.ph",
